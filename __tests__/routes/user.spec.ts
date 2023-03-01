@@ -33,3 +33,14 @@ describe('Run server and test GET /api/users/:username/details', () => {
     expect(id).toBeTruthy();
   });
 });
+
+describe('Run server and test GET /api/users/:username/repos', () => {
+  it('Should return array of repos from /api/users/tecladistaprod/details', async () => {
+    const data = await request(App).get('/api/users/tecladistaprod/repos');
+    const repos = data.body as Array<{
+      id: number;
+    }>;
+    expect(data.statusCode).toBe(200);
+    expect(repos.length).toBeGreaterThanOrEqual(0);
+  });
+});
