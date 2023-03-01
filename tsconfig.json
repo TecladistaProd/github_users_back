@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2021"],
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist/**/*"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
