@@ -1,10 +1,10 @@
 import github from 'octonode';
-import { IUser } from '@interfaces/user';
+import { IData } from '@interfaces/github';
 
 const client = github.client();
 
 class GithubService {
-  static listUsers(since: string | number = 0): Promise<Array<IUser>> {
+  static listUsers(since: string | number = 0): Promise<Array<IData>> {
     return new Promise((res, rej) => {
       client.get('/users', { since, per_page: 10 }, (err, _, body) => {
         if (err) return rej(err);
@@ -13,9 +13,18 @@ class GithubService {
     });
   }
 
-  static getUser(username: string): Promise<IUser> {
+  static getUser(username: string): Promise<IData> {
     return new Promise((res, rej) => {
       client.get(`/users/${username}`, {}, (err, _, body) => {
+        if (err) return rej(err);
+        return res(body);
+      });
+    });
+  }
+
+  static getUserRepos(username: string): Promise<IData> {
+    return new Promise((res, rej) => {
+      client.get(`/users/${username}/repos`, {}, (err, _, body) => {
         if (err) return rej(err);
         return res(body);
       });
