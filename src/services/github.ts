@@ -6,7 +6,7 @@ const client = github.client();
 class GithubService {
   static listUsers(since: string | number = 0): Promise<Array<IData>> {
     return new Promise((res, rej) => {
-      client.get('/users', { since, per_page: 10 }, (err, _, body) => {
+      client.get('/users', { since, per_page: 30 }, (err, _, body) => {
         if (err) return rej(err);
         return res(body);
       });

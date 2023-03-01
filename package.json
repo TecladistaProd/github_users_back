@@ -8,7 +8,7 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "start": "node dist/server.js",
     "husky": "husky install",
-    "prebuild": "ts-node ./scripts/prebuild.ts",
+    "prebuild": "npm run test && ts-node ./scripts/prebuild.ts",
     "build": "tsc --target ES2021 --experimentalDecorators --emitDecoratorMetadata && tsc-alias",
     "postbuild": "ts-node ./scripts/postbuild.ts",
     "test": "vitest run"
