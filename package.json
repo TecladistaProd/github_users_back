@@ -7,10 +7,11 @@
     "dev": "tsnd -r tsconfig-paths/register --transpile-only --respawn --ignore-watch node_modules src/server",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "start": "node dist/server.js",
-    "prepare:husky": "husky install",
+    "husky": "husky install",
     "prebuild": "ts-node ./scripts/prebuild.ts",
     "build": "tsc --target ES2021 --experimentalDecorators --emitDecoratorMetadata && tsc-alias",
-    "postbuild": "ts-node ./scripts/postbuild.ts"
+    "postbuild": "ts-node ./scripts/postbuild.ts",
+    "test": "cat package.json"
   },
   "keywords": [],
   "config": {
