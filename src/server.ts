@@ -1,6 +1,8 @@
 import App from './App';
 import 'dotenv/config';
 
+const port = process.env.PORT || 80;
+
 (async () => {
-  App.listen(80, () => console.log('Listening on Port 80'));
+  App.listen(port, () => console.log(`Listening on port ${port}`));
 })();
