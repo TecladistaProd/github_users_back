@@ -10,13 +10,10 @@ function copyRecursiveSync(src: string, dest: string) {
     fs.readdirSync(src).forEach((childItemName) => {
       copyRecursiveSync(
         path.join(src, childItemName),
-        path.join(dest, childItemName),
+        path.join(dest, childItemName)
       );
     });
   } else {
     fs.copyFileSync(src, dest);
   }
 }
-
-copyRecursiveSync(path.resolve(__dirname, '..', 'src', 'views'), path.resolve(__dirname, '..', 'dist', 'views'));
-copyRecursiveSync(path.resolve(__dirname, '..', 'src', 'locales'), path.resolve(__dirname, '..', 'dist', 'locales'));
